@@ -34,7 +34,7 @@ public class Ejercicio3 {
         windowPanel.add(optionLabel);
         windowPanel.add(preferenceButton);
         window.setVisible(true);
-        System.out.println("Hello World!");
+        System.out.println("Ventana instanciada!!");
     }
 }
 /*2-Ventana secundaria con sus componentes*/
@@ -57,6 +57,25 @@ public class Ejercicio3 {
                 dialogPanel.add(btnAccept);
                 
                 add(dialogPanel);
-                
+                //5- Interaccion 2, procesar las opciones
+                btnAccept.addActionListener(new ActionListener(){
+                @Override
+                //comprueba que la accion fue efectuada
+                public void actionPerformed(ActionEvent e){
+                    
+                    /*Condicionales que chequean si se seleccionan los checkboxes*/
+                    if(chkDarkMode.isSelected()){
+                        System.out.println("Se selecciono el check");
+                    }
+                    if(chkNotifications.isSelected()){
+                        System.out.println("Se selecciono el check");
+                    }
+                    if(chkAutoSave.isSelected()){
+                        System.out.println("Se selecciono el check");
+                    }
+                    
+                    dispose();
+                }
+                });
             }
         };
