@@ -62,17 +62,27 @@ public class Ejercicio3 {
                 @Override
                 //comprueba que la accion fue efectuada
                 public void actionPerformed(ActionEvent e){
-                    
+                    //6- String para evaluar los checkboxes
+                    String selecciones = "Opciones:";
+                    boolean elegido = false;
                     /*Condicionales que chequean si se seleccionan los checkboxes*/
                     if(chkDarkMode.isSelected()){
-                        System.out.println("Se selecciono el check");
+                        selecciones = selecciones + " Modo Oscuro ";
+                        elegido = true; 
                     }
                     if(chkNotifications.isSelected()){
-                        System.out.println("Se selecciono el check");
+                        selecciones = selecciones + " Notificaciones ";
+                        elegido = true;
                     }
                     if(chkAutoSave.isSelected()){
-                        System.out.println("Se selecciono el check");
+                        selecciones = selecciones + " Autoguardado ";
+                        elegido = true;
                     }
+                    if(!elegido){
+                        selecciones = "Opciones seleccionadas: Ninguna";
+                    }
+                    
+                    updateLabel.setText(selecciones);
                     
                     dispose();
                 }
