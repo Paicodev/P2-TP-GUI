@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
  */
 public class Ejercicio4 {
 
+    private static final String contrasena = "unvime2026";
     public static void main(String[] args) {
         //1- Configuracion del contenedor
         JFrame window = new JFrame("Sistema de Acceso");
@@ -40,7 +41,36 @@ public class Ejercicio4 {
         panel.add(txtUser);
         panel.add(lblPassword);
         panel.add(txtPassword);
+        panel.add(btnAccess);
+        
+        //6- Listener para el boton de acceso
+        btnAccess.addActionListener(new ActionListener() {
+            
+        @Override
+        public void actionPerformed(ActionEvent e){
+        //7- logica para capturar y validar los datos
+        char[] passwordArray = txtPassword.getPassword();
+        
+        String passwordIngresada = new String(passwordArray);
+        
+        //8- brindar la respuesta final cuando ingrese
+        if(passwordIngresada.equals(contrasena)){
+            //con JOptionPane creamos cuadros de dialogo rapidos
+            JOptionPane.showMessageDialog(window,
+                    "Bienvenido al sistema "+ txtUser.getText(),
+                    "Acceso Concedido",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+            
+        } else {
+            JOptionPane.showMessageDialog(window,
+                    "Contraseña Incorrecta, intente nuevamente",
+                    "Acceso Denegado",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        }
+        });
+        
         window.setVisible(true);
-        System.out.println("Hello World!");
     }
 }
